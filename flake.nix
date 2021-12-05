@@ -13,15 +13,10 @@
 
         haskellPackages = pkgs.haskell.packages.ghc901;
 
-        jailbreakUnbreak = pkg:
-          pkgs.haskell.lib.doJailbreak (pkg.overrideAttrs (_: { meta = { }; }));
-
         packageName = "advent-of-code";
       in {
-        packages.${packageName} = # (ref:haskell-package-def)
-          haskellPackages.callCabal2nix packageName self rec {
-            # Dependency overrides go here
-          };
+        packages.${packageName} =
+          haskellPackages.callCabal2nix packageName self rec { };
 
         defaultPackage = self.packages.${system}.${packageName};
 
