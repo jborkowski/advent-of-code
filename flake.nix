@@ -11,7 +11,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
 
-        haskellPackages = pkgs.haskell.packages.ghc901;
+        haskellPackages = pkgs.haskell.packages.ghc921;
 
         packageName = "advent-of-code";
       in {
